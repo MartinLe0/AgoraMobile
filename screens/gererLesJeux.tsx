@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         marginBottom: 16,
         alignSelf: "center",
+        color: "white",
     },
     card: {
         backgroundColor: "white",

@@ -34,7 +34,8 @@ const styles = StyleSheet.create({
         fontSize: 26,
         fontWeight: "bold",
         marginBottom: 20,
-        textAlign: "center"
+        textAlign: "center",
+        color: "white"
     },
     infoContainer: {
         backgroundColor: "white",

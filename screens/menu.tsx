@@ -1,40 +1,62 @@
 import React from "react";
-import { View, Text, Button, StyleSheet } from "react-native";
+import { View, Text, Button, StyleSheet, Alert } from "react-native";
+import { auth } from "../services/firebaseConfig";
+import { signOut } from "firebase/auth";
 
 export default function Menu({ navigation }) {
+    const handleLogout = () => {
+        signOut(auth)
+            .then(() => {
+                navigation.navigate("pageConnexion");
+            })
+            .catch((error) => {
+                Alert.alert("Erreur", "Impossible de se déconnecter : " + error.message);
+            });
+    };
+
     return (
         <View style={styles.viewStyle}>
-            <Text style={styles.title}>Menu</Text>
-            <Button
-                color="gray"
-                title="Gérer les genres"
-                onPress={() => navigation.navigate("pageGererLesGenres")}
-            />
-            <Button
-                color="gray"
-                title="Gérer les jeux"
-                onPress={() => navigation.navigate("pageGererLesJeux")}
-            />
-            <Button
-                color="gray"
-                title="Gérer les marques"
-                onPress={() => navigation.navigate("pageGererLesMarques")}
-            />
-            <Button
-                color="gray"
-                title="Gérer les PEGI"
-                onPress={() => navigation.navigate("pageGererLesPegi")}
-            />
-            <Button
-                color="gray"
-                title="Gérer les plateformes"
-                onPress={() => navigation.navigate("pageGererLesPlateformes")}
-            />
-            <Button
-                color="gray"
-                title="Quitter"
-                onPress={() => navigation.navigate("pageConnexion")}
-            />
+            <Text style={styles.title}>Menu Principal</Text>
+
+            <View style={styles.grid}>
+                <Button
+                    color="#607D8B"
+                    title="Gérer les genres"
+                    onPress={() => navigation.navigate("pageGererLesGenres")}
+                />
+                <View style={styles.spacer} />
+                <Button
+                    color="#607D8B"
+                    title="Gérer les jeux"
+                    onPress={() => navigation.navigate("pageGererLesJeux")}
+                />
+                <View style={styles.spacer} />
+                <Button
+                    color="#607D8B"
+                    title="Gérer les marques"
+                    onPress={() => navigation.navigate("pageGererLesMarques")}
+                />
+                <View style={styles.spacer} />
+                <Button
+                    color="#607D8B"
+                    title="Gérer les PEGI"
+                    onPress={() => navigation.navigate("pageGererLesPegi")}
+                />
+                <View style={styles.spacer} />
+                <Button
+                    color="#607D8B"
+                    title="Gérer les plateformes"
+                    onPress={() => navigation.navigate("pageGererLesPlateformes")}
+                />
+            </View>
+
+            <View style={styles.logoutContainer}>
+                <Button
+                    color="#F44336"
+                    title="Déconnexion"
+                    onPress={handleLogout}
+                />
+            </View>
         </View>
     );
 }
@@ -42,15 +64,26 @@ export default function Menu({ navigation }) {
 const styles = StyleSheet.create({
     viewStyle: {
         flex: 1,
-        paddingTop: 50,
-        paddingHorizontal: 12,
+        paddingTop: 60,
+        paddingHorizontal: 25,
         backgroundColor: "lightgreen",
-        alignItems: "center",
-        justifyContent: "center",
+        alignItems: "stretch",
     },
     title: {
-        fontSize: 24,
+        fontSize: 28,
         fontWeight: "bold",
-        marginBottom: 20,
+        marginBottom: 30,
+        textAlign: "center",
+        color: "white",
+    },
+    grid: {
+        flex: 1,
+    },
+    spacer: {
+        height: 15,
+    },
+    logoutContainer: {
+        marginBottom: 40,
+        marginTop: 20,
     }
 });

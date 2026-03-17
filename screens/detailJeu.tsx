@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
         fontSize: 26,
         fontWeight: "bold",
         marginBottom: 20,
+        color: "white",
     },
     infoContainer: {
         marginBottom: 30,
