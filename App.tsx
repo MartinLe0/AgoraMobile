@@ -16,6 +16,11 @@ import GererLesPlateformes from "./screens/gererLesPlateformes";
 import DetailMarque from "./screens/detailMarque";
 import DetailPegi from "./screens/detailPegi";
 import DetailPlateforme from "./screens/detailPlateforme";
+import EditGenre from "./screens/editGenre";
+import EditMarque from "./screens/editMarque";
+import EditPegi from "./screens/editPegi";
+import EditPlateforme from "./screens/editPlateforme";
+import EditJeu from "./screens/editJeu";
 
 const Stack = createNativeStackNavigator();
 
@@ -33,6 +38,11 @@ function AuthenticatedStack() {
             <Stack.Screen name="pageDetailMarque" component={DetailMarque} options={{ title: 'Détail Marque' }} />
             <Stack.Screen name="pageDetailPegi" component={DetailPegi} options={{ title: 'Détail PEGI' }} />
             <Stack.Screen name="pageDetailPlateforme" component={DetailPlateforme} options={{ title: 'Détail Plateforme' }} />
+            <Stack.Screen name="pageEditGenre" component={EditGenre} options={{ title: 'Modifier Genre' }} />
+            <Stack.Screen name="pageEditMarque" component={EditMarque} options={{ title: 'Modifier Marque' }} />
+            <Stack.Screen name="pageEditPegi" component={EditPegi} options={{ title: 'Modifier PEGI' }} />
+            <Stack.Screen name="pageEditPlateforme" component={EditPlateforme} options={{ title: 'Modifier Plateforme' }} />
+            <Stack.Screen name="pageEditJeu" component={EditJeu} options={{ title: 'Modifier Jeu' }} />
         </Stack.Navigator>
     );
 }
